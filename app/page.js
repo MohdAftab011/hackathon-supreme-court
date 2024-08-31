@@ -13,9 +13,12 @@ export default function Home() {
     }
 
     return (
-        <main className="flex min-h-screen flex-col items-center justify-between p-24">
+        <main className="flex min-h-screen  gap-5 items-center justify-center p-24">
             <Link className="bg-blue-500 " href={"/upload"}>
                 View PDF{" "}
+            </Link>
+            <Link className="bg-blue-500 " href={"/search"}>
+                search
             </Link>
         </main>
     );
