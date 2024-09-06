@@ -61,7 +61,7 @@ const UnifiedSearch = () => {
     };
 
     return (
-        <div 
+        <section 
             className="bg-gray-100 p-8 shadow-md rounded-lg max-w-3xl mx-auto"
             style={{
                 backgroundImage: 'background-search.jpg', // Replace with your image path
@@ -153,7 +153,7 @@ const UnifiedSearch = () => {
                     </ul>
                 </div>
             )}
-        </div>
+        </section>
     );
 };
 
