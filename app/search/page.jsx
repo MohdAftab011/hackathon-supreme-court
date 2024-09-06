@@ -42,7 +42,7 @@ const UnifiedSearch = () => {
                     .filter(Boolean)
                     .join(" OR ");
 
-                console.log("googleqyery", googleQuery);
+                console.log("googlequery", googleQuery);
 
                 const response = await axios.get(
                     `https://www.googleapis.com/customsearch/v1?key=${process.env.NEXT_PUBLIC_GOOGLE_SEARCH_ENGINE_API_KEY}&cx=${process.env.NEXT_PUBLIC_GOOGLE_SEARCH_ENGINE_ID}&q=${googleQuery}`
@@ -61,13 +61,20 @@ const UnifiedSearch = () => {
     };
 
     return (
-        <section className="max-w-3xl mx-auto p-4">
-            <h1 className="text-2xl font-bold mb-4">Unified Search</h1>
+        <div 
+            className="bg-gray-100 p-8 shadow-md rounded-lg max-w-3xl mx-auto"
+            style={{
+                backgroundImage: 'background-search.jpg', // Replace with your image path
+                backgroundSize: 'cover',
+                backgroundPosition: 'center',
+            }}
+        >
+            <h1 className="text-2xl font-bold mb-6 text-black">Unified Search</h1>
 
-            <form onSubmit={handleSubmit} className="mb-4">
-                <div className="flex items-center border rounded-lg overflow-hidden">
+            <form onSubmit={handleSubmit} className="mb-6">
+                <div className="flex items-center border border-gray-300 rounded-lg overflow-hidden">
                     <input
-                        className="flex-grow p-2 outline-none text-gray-500"
+                        className="flex-grow p-3 outline-none text-black"
                         type="text"
                         value={query}
                         onChange={(e) => setQuery(e.target.value)}
@@ -75,7 +82,7 @@ const UnifiedSearch = () => {
                     />
                     <button
                         type="submit"
-                        className="bg-blue-500 text-white p-2 px-4 hover:bg-blue-600 transition duration-200"
+                        className={`bg-blue-500 text-white p-3 px-6 hover:bg-blue-600 transition duration-200 ${isLoading ? 'opacity-50 cursor-not-allowed' : ''}`}
                         disabled={isLoading}
                     >
                         {isLoading ? "Searching..." : "Search"}
@@ -86,26 +93,24 @@ const UnifiedSearch = () => {
             {error && <p className="text-red-500 mb-4">{error}</p>}
 
             {articleResults.length > 0 && (
-                <div className="mb-4">
-                    <h2 className="text-xl font-semibold mb-2">
-                        Article Results:
-                    </h2>
+                <div className="mb-6">
+                    <h2 className="text-xl font-semibold mb-4 text-black">Article Results:</h2>
                     <div className="grid gap-4">
                         {articleResults.map((result, index) => (
                             <div
                                 key={index}
-                                className="border p-4 rounded-lg shadow-sm"
+                                className="border border-gray-200 p-4 rounded-lg shadow-sm bg-white"
                             >
-                                <h3 className="font-bold">
+                                <h3 className="font-bold text-lg text-black">
                                     {result.title || "Untitled"}
                                 </h3>
                                 {result.article_number && (
-                                    <p>
+                                    <p className="text-black">
                                         Article Number: {result.article_number}
                                     </p>
                                 )}
                                 {result.similarity_score !== undefined && (
-                                    <p>
+                                    <p className="text-black">
                                         Similarity Score:{" "}
                                         {result.similarity_score.toFixed(4)}
                                     </p>
@@ -117,7 +122,7 @@ const UnifiedSearch = () => {
                                             "article_number",
                                             "similarity_score",
                                         ].includes(key) && (
-                                            <p key={key}>
+                                            <p key={key} className="text-black">
                                                 {key}: {JSON.stringify(value)}
                                             </p>
                                         )
@@ -129,28 +134,30 @@ const UnifiedSearch = () => {
             )}
 
             {googleResults.length > 0 && (
-                <div className="mb-4">
-                    <h2 className="text-xl font-semibold mb-2">
-                        Related Google Results:
-                    </h2>
+                <div className="mb-6">
+                    <h2 className="text-xl font-semibold mb-4 text-black">Related Google Results:</h2>
                     <ul className="list-disc pl-5">
                         {googleResults.map((item, index) => (
-                            <li key={index}>
+                            <li key={index} className="mb-4 p-4 border border-gray-200 rounded-lg shadow-sm bg-white hover:bg-gray-50 transition duration-200">
                                 <a
                                     href={item.link}
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     className="text-blue-600 hover:underline"
                                 >
-                                    {item.title}
+                                    <h3 className="font-bold mb-1 text-black">{item.title}</h3>
+                                    <p className="text-gray-700">{item.snippet}</p>
                                 </a>
                             </li>
                         ))}
                     </ul>
                 </div>
             )}
-        </section>
+        </div>
     );
 };
 
 export default UnifiedSearch;
+
+
+

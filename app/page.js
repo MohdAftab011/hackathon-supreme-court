@@ -4,6 +4,9 @@ import Link from "next/link";
 import { useAuth } from "@/context/AuthContext";
 
 import { signInWithGoogle } from "@/services/authService";
+import HomePage from "@/components/HomePage/HomePage";
+import Feature from "@/components/Feature/Feature";
+import Footer from "@/components/Footer/Footer";
 
 export default function Home() {
     const { user, loading } = useAuth();
@@ -13,13 +16,11 @@ export default function Home() {
     }
 
     return (
-        <main className="flex min-h-screen  gap-5 items-center justify-center p-24">
-            <Link className="bg-blue-500 " href={"/upload"}>
-                View PDF{" "}
-            </Link>
-            <Link className="bg-blue-500 " href={"/search"}>
-                search
-            </Link>
-        </main>
+        <>
+            <HomePage />
+            <Feature/>
+            <Footer/>
+        </>
     );
 }
+
