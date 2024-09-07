@@ -38,19 +38,20 @@ export default function Upload() {
     }
 
     return (
-        <main className="flex min-h-screen flex-col items-center justify-between p-24">
+        <main className="flex min-h-screen flex-col items-center justify-center p-6 bg-cover bg-center" style={{ backgroundImage: "/background-search.jpg" }}>
             {user ? (
                 <>
                     <input
                         type="file"
                         accept="application/pdf"
                         onChange={handleFileChange}
+                        className="p-2 border border-gray-300 rounded-lg mt-4"
                     />
                     {fileURL && (
                         <div className="mt-4">
                             <button
                                 onClick={handlePreviewPdf}
-                                className="bg-blue-500 p-2 text-white"
+                                className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded"
                             >
                                 View PDF
                             </button>
@@ -58,12 +59,16 @@ export default function Upload() {
                     )}
                 </>
             ) : (
-                <button
-                    onClick={handleUploadPdf}
-                    className="bg-blue-500 p-2 text-white"
-                >
-                    Sign In to Upload PDF
-                </button>
+                <div className="bg-white shadow-lg rounded-lg p-8 text-center">
+                    <h2 className="text-2xl font-semibold mb-4">Sign In Required</h2>
+                    <p className="text-gray-600 mb-4">Please sign in to upload and view PDFs.</p>
+                    <button
+                        onClick={handleUploadPdf}
+                        className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded mt-10"
+                    >
+                        Sign In to Upload PDF
+                    </button>
+                </div>
             )}
         </main>
     );
