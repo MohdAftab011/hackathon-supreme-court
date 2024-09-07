@@ -1,6 +1,9 @@
 import React from "react";
 
 const ResultsArea = ({ articleResults, googleResults }) => {
+    console.log("first", articleResults);
+    console.log("second", googleResults);
+
     return (
         <section
             className="bg-gray-100 p-8 shadow-md rounded-lg max-w-3xl mx-auto"
@@ -10,7 +13,8 @@ const ResultsArea = ({ articleResults, googleResults }) => {
                 backgroundPosition: "center",
             }}
         >
-            {articleResults.length > 0 && (
+            {" "}
+            {articleResults && articleResults.length > 0 && (
                 <div className="mb-6">
                     <h2 className="text-xl font-semibold mb-4 text-black">
                         Article Results:
@@ -52,8 +56,7 @@ const ResultsArea = ({ articleResults, googleResults }) => {
                     </div>
                 </div>
             )}
-
-            {googleResults.length > 0 && (
+            {googleResults && googleResults.length > 0 && (
                 <div className="mb-6">
                     <h2 className="text-xl font-semibold mb-4 text-black">
                         Related Google Results:

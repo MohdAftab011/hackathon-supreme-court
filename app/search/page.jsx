@@ -39,14 +39,23 @@ const UnifiedSearch = () => {
             console.log("result array", resultsArray);
             if (resultsArray.length > 0) {
                 const googleQuery = resultsArray
-                    .map((item) => item.title || "")
+                    .map((item) =>
+                        item.title
+                            ? `"${item.title}" "Indian Constitution" "India"`
+                            : ""
+                    )
                     .filter(Boolean)
                     .join(" OR ");
 
+                // Add keywords to restrict results to Indian rules and laws
                 console.log("googlequery", googleQuery);
 
                 const response = await axios.get(
-                    `https://www.googleapis.com/customsearch/v1?key=${process.env.NEXT_PUBLIC_GOOGLE_SEARCH_ENGINE_API_KEY}&cx=${process.env.NEXT_PUBLIC_GOOGLE_SEARCH_ENGINE_ID}&q=${googleQuery}`
+                    `https://www.googleapis.com/customsearch/v1?key=${
+                        process.env.NEXT_PUBLIC_GOOGLE_SEARCH_ENGINE_API_KEY
+                    }&cx=${
+                        process.env.NEXT_PUBLIC_GOOGLE_SEARCH_ENGINE_ID
+                    }&q=${encodeURIComponent(googleQuery)}`
                 );
 
                 console.log("response of google", response.data.items);
@@ -96,11 +105,21 @@ const UnifiedSearch = () => {
             </form>
 
             {error && <p className="text-red-500 mb-4">{error}</p>}
-
-            <ResultsArea
-                articleResults={articleResults}
-                googleResults={googleResults}
-            />
+            <div
+                className={` text-white p-2 rounded-md px-6  bg-blue-600   my-5`}
+            >
+                {isLoading
+                    ? "Fetching Results..."
+                    : articleResults.length || googleResults.length
+                    ? "Search Results"
+                    : "Type the case details to search"}
+            </div>
+            {(articleResults.length || googleResults.length) && (
+                <ResultsArea
+                    articleResults={articleResults}
+                    googleResults={googleResults}
+                />
+            )}
         </section>
     );
 };
