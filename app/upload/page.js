@@ -20,11 +20,8 @@ export default function Upload() {
     const [articleResults, setArticleResults] = useState([]);
     const [googleResults, setGoogleResults] = useState([]);
 
-    const handleSignIn = async () => {
-        if (!user) {
-            await signInWithGoogle();
-        }
-        // Proceed with PDF upload logic here
+    const handleGoogleSignIn = async () => {
+        await signInWithGoogle();
     };
 
     function parsePdf(event) {
@@ -160,7 +157,7 @@ export default function Upload() {
                         Please sign in to upload and view PDFs.
                     </p>
                     <button
-                        onClick={handleSignIn}
+                        onClick={handleGoogleSignIn}
                         className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded mt-10"
                     >
                         Sign In to Upload PDF
