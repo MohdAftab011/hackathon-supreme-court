@@ -3,9 +3,11 @@ import { useState } from "react";
 import { useAuth } from "@/context/AuthContext";
 import { signInWithGoogle } from "@/services/authService";
 import Link from "next/link";
+import pdfToText from "react-pdftotext";
 
 export default function Upload() {
     const [file, setFile] = useState(null);
+    const [fileText, setFileText] = useState("");
     const [fileURL, setFileURL] = useState(null); // For the file URL
     const { user, loading } = useAuth();
 
@@ -16,9 +18,22 @@ export default function Upload() {
         // Proceed with PDF upload logic here
     };
 
+    function parsePdf(event) {
+        const file = event.target.files[0];
+        pdfToText(file)
+            .then((text) => {
+                console.log("pdf text:", text);
+                setFileText(text);
+            })
+            .catch((error) => console.error("Failed to extract text from pdf"));
+    }
+
     const handleFileChange = (e) => {
         const selectedFile = e.target.files[0];
         setFile(selectedFile);
+
+        // extract text from pdf
+        parsePdf(e);
 
         // Create a URL for the file to preview
         if (selectedFile) {
