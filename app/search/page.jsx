@@ -19,13 +19,16 @@ const UnifiedSearch = () => {
 
         try {
             // Search your API for articles
-            const articleRes = await fetch(process.env.NEXT_PUBLIC_SITE_URL, {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify({ query }),
-            });
+            const articleRes = await fetch(
+                process.env.NEXT_PUBLIC_SITE_URL + "/api/search",
+                {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify({ query }),
+                }
+            );
 
             const articleData = await articleRes.json();
             console.log("API response:", articleData.data);
