@@ -7,6 +7,7 @@ import { signInWithGoogle } from "@/services/authService";
 import HomePage from "@/components/HomePage/HomePage";
 import Feature from "@/components/Feature/Feature";
 import Footer from "@/components/Footer/Footer";
+import HIW from "@/components/HowItWork/HIW";
 
 export default function Home() {
     const { user, loading } = useAuth();
@@ -19,6 +20,7 @@ export default function Home() {
         <>
             <HomePage />
             <Feature/>
+            <HIW/>
             <Footer/>
         </>
     );

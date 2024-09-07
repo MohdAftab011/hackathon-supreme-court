@@ -12,10 +12,11 @@ const Nav = () => {
     const handleGoogleSignOut = async () => {
         await signOut();
     };
+    
 
     return (
         <>
-            <header className="py-3 md:py-4 sticky top-0 bg-white z-48 shadow-md"> {/* Added background color here */}
+            <header className="py-3 md:py-4 sticky top-0 bg-white z-2 shadow-md"> {/* Added background color here */}
                 <div className="container px-4 mx-auto sm:px-6 lg:px-8">
                     <div className="flex items-center justify-between">
                     <div className="flex-shrink-0">

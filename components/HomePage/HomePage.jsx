@@ -2,6 +2,7 @@ import React from 'react';
 
 const HomePage = () => {
     return (
+        <>
         <div id="home" className="bg-gray-50">
             
 
@@ -36,6 +37,10 @@ const HomePage = () => {
                 </div>
             </section>
         </div>
+        
+        
+        </>
+        
     );
 };
 
