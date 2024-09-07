@@ -19,7 +19,7 @@ const UnifiedSearch = () => {
 
         try {
             // Search your API for articles
-            const articleRes = await fetch("http://localhost:3000/api/search", {
+            const articleRes = await fetch(process.env.NEXT_PUBLIC_SITE_URL, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -61,15 +61,17 @@ const UnifiedSearch = () => {
     };
 
     return (
-        <section 
+        <section
             className="bg-gray-100 p-8 shadow-md rounded-lg max-w-3xl mx-auto"
             style={{
-                backgroundImage: 'background-search.jpg', // Replace with your image path
-                backgroundSize: 'cover',
-                backgroundPosition: 'center',
+                backgroundImage: "background-search.jpg", // Replace with your image path
+                backgroundSize: "cover",
+                backgroundPosition: "center",
             }}
         >
-            <h1 className="text-2xl font-bold mb-6 text-black">Unified Search</h1>
+            <h1 className="text-2xl font-bold mb-6 text-black">
+                Unified Search
+            </h1>
 
             <form onSubmit={handleSubmit} className="mb-6">
                 <div className="flex items-center border border-gray-300 rounded-lg overflow-hidden">
@@ -82,7 +84,9 @@ const UnifiedSearch = () => {
                     />
                     <button
                         type="submit"
-                        className={`bg-blue-500 text-white p-3 px-6 hover:bg-blue-600 transition duration-200 ${isLoading ? 'opacity-50 cursor-not-allowed' : ''}`}
+                        className={`bg-blue-500 text-white p-3 px-6 hover:bg-blue-600 transition duration-200 ${
+                            isLoading ? "opacity-50 cursor-not-allowed" : ""
+                        }`}
                         disabled={isLoading}
                     >
                         {isLoading ? "Searching..." : "Search"}
@@ -94,7 +98,9 @@ const UnifiedSearch = () => {
 
             {articleResults.length > 0 && (
                 <div className="mb-6">
-                    <h2 className="text-xl font-semibold mb-4 text-black">Article Results:</h2>
+                    <h2 className="text-xl font-semibold mb-4 text-black">
+                        Article Results:
+                    </h2>
                     <div className="grid gap-4">
                         {articleResults.map((result, index) => (
                             <div
@@ -135,18 +141,27 @@ const UnifiedSearch = () => {
 
             {googleResults.length > 0 && (
                 <div className="mb-6">
-                    <h2 className="text-xl font-semibold mb-4 text-black">Related Google Results:</h2>
+                    <h2 className="text-xl font-semibold mb-4 text-black">
+                        Related Google Results:
+                    </h2>
                     <ul className="list-disc pl-5">
                         {googleResults.map((item, index) => (
-                            <li key={index} className="mb-4 p-4 border border-gray-200 rounded-lg shadow-sm bg-white hover:bg-gray-50 transition duration-200">
+                            <li
+                                key={index}
+                                className="mb-4 p-4 border border-gray-200 rounded-lg shadow-sm bg-white hover:bg-gray-50 transition duration-200"
+                            >
                                 <a
                                     href={item.link}
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     className="text-blue-600 hover:underline"
                                 >
-                                    <h3 className="font-bold mb-1 text-black">{item.title}</h3>
-                                    <p className="text-gray-700">{item.snippet}</p>
+                                    <h3 className="font-bold mb-1 text-black">
+                                        {item.title}
+                                    </h3>
+                                    <p className="text-gray-700">
+                                        {item.snippet}
+                                    </p>
                                 </a>
                             </li>
                         ))}
@@ -158,6 +173,3 @@ const UnifiedSearch = () => {
 };
 
 export default UnifiedSearch;
-
-
-
