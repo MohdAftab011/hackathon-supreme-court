@@ -11,8 +11,8 @@ const HomePage = () => {
                     <div className="grid max-w-lg grid-cols-1 mx-auto lg:max-w-full lg:items-center lg:grid-cols-2 gap-y-12 lg:gap-x-16">
                         <div>
                             <div className="text-center lg:text-left">
-                                <h1 className="text-4xl font-bold leading-tight text-gray-900 sm:text-5xl sm:leading-tight lg:leading-tight lg:text-6xl font-pj">A special credit card made for Developers.</h1>
-                                <p className="mt-2 text-lg text-gray-600 sm:mt-8 font-inter">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vehicula massa in enim luctus. Rutrum arcu.</p>
+                                <h1 className="text-4xl font-bold leading-tight text-gray-900 sm:text-5xl sm:leading-tight lg:leading-tight lg:text-6xl font-pj"> AI-Driven Research Engine for Commercial Courts</h1>
+                                <p className="mt-2 text-lg text-gray-600 sm:mt-8 font-inter">To speed up commercial dispute resolution in India, an AI-Driven Research Engine is needed for commercial courts. This engine will assist judges by aggregating legal data, providing customized insights, and predicting case outcomes. It must be user-friendly, ethically compliant, and adaptable to the diverse legal requirements of India’s High Courts.</p>
 
                                 
                             </div>
