@@ -71,10 +71,19 @@ const UnifiedSearch = () => {
     };
 
     return (
+        <>
+    <div style={{
+            backgroundColor: "white",
+            minHeight: "100vh",
+            backgroundImage: "url('justice-photo.jpg')", // Replace with your image path
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+            backgroundAttachment: "fixed"
+        }}>
         <section
             className="bg-gray-100 p-8 shadow-md rounded-lg max-w-3xl mx-auto"
             style={{
-                backgroundImage: "background-search.jpg", // Replace with your image path
+                backgroundImage: "url('background-search.jpg')", // Ensure you have the correct path for the image
                 backgroundSize: "cover",
                 backgroundPosition: "center",
             }}
@@ -106,7 +115,7 @@ const UnifiedSearch = () => {
 
             {error && <p className="text-red-500 mb-4">{error}</p>}
             <div
-                className={` text-white p-2 rounded-md px-6  bg-blue-600   my-5`}
+                className={`text-white p-2 rounded-md px-6 bg-blue-600 my-5`}
             >
                 {isLoading
                     ? "Fetching Results..."
@@ -121,6 +130,9 @@ const UnifiedSearch = () => {
                 />
             )}
         </section>
+    </div>
+</>
+
     );
 };
 
