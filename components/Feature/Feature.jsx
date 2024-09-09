@@ -3,20 +3,31 @@ import React from 'react';
 const Feature = () => {
     const feedbacks = [
         {
-            title: "Take authentic feedbacks from customers of your app.",
-            highlight: "Predictive Analytics",
+            highlight: "Legal Research Optimization",
+            points: [
+                "Automated Case Law Retrieval: Quickly retrieves relevant articles, legal rules, and precedents from an extensive database based on the case context.",
+                "Contextual Recommendations: Provides relevant sections from legal literature, rules, and judgments tailored to commercial court cases.",
+                "Keyword and Citation Analysis: Analyzes key phrases and citations in a legal document to offer focused insights and related cases."
+            ],
             imageSrc: "Pre-An.jpeg", // You would replace with actual image source path
             altText: "Feedback Image 1"
         },
         {
-            title: "Make quick fixes based on the feedbacks you've received.",
-            highlight: "Ethical Compliance",
+            highlight: "Predictive Analytics for Case Outcomes",
+            points: [
+                "Historical Data Modeling: Leverages machine learning to predict potential case outcomes based on patterns from past commercial court rulings.",
+                "Probability Scoring: Assigns probability scores to potential outcomes, offering judicial officers a data-backed perspective without replacing their judgment.",
+                "Outcome Scenario Simulation: Simulates various legal outcomes by altering key variables, helping to foresee possible decisions."
+            ],
             imageSrc: "eth-comp.jpeg", // Replace with actual image source path
             altText: "Feedback Image 2"
         },
         {
-            title: "Enjoy more than 10x revenue with real-time conversions.",
-            highlight: "Technical Feasibility and Reliability",
+            highlight: "Integration and User Experience",
+            points: [
+                "Proven technologies ensure reliability",
+                "Compatible with common legal research platforms, allowing easy adoption by judicial officers.",
+            ],
             imageSrc: "Tech-feas.jpeg", // Replace with actual image source path
             altText: "Feedback Image 3"
         }
@@ -30,23 +41,27 @@ const Feature = () => {
                     {feedbacks.map((feedback, index) => (
                         <div key={index} className="bg-gray-50 rounded-lg p-6 shadow-lg">
                             <img
-                                className="rounded-lg w-full mb-4 "
+                                className="rounded-lg w-full mb-4"
                                 src={feedback.imageSrc}
                                 alt={feedback.altText}
                             />
-                             <p className="text-lg font-semibold mb-2 text-gray-600">
-                            {feedback.title}
-                        </p>
-                        <p className="text-blue-600 underline">
-                            {feedback.highlight}
-                        </p>
+                            <p className="text-blue-600 underline text-lg font-semibold mb-2">
+                                {feedback.highlight}
+                            </p>
+                            <ul className="list-disc list-inside text-lg text-gray-600">
+                                {feedback.points.map((point, idx) => (
+                                    <li key={idx} className="mb-2">
+                                        {point}
+                                    </li>
+                                ))}
+                            </ul>
                         </div>
                     ))}
                 </div>
             </section>
-        </>            
-
+        </>
     );
 };
 
 export default Feature;
+
