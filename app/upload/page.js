@@ -12,7 +12,7 @@ export default function Upload() {
     const [file, setFile] = useState(null);
     const [fileText, setFileText] = useState("");
     const [fileURL, setFileURL] = useState(null); // For the file URL
-    const { user, loading } = useAuth();
+    // const { user, loading } = useAuth();
 
     const [isLoading, setIsLoading] = useState(false);
     const [error, setError] = useState(null);
@@ -113,21 +113,22 @@ export default function Upload() {
         }
     };
 
-    if (loading) {
-        return <div>Loading...</div>;
-    }
+    // if (loading) {
+    //     return <div>Loading...</div>;
+    // }
 
     return (
-    <>
-        <div
-         style={{
-                backgroundColor: "white",
-                minHeight: "100vh",
-                backgroundImage: "url('upload-background.jpeg')", // Replace with your image path
-                backgroundSize: "cover",
-                backgroundPosition: "center",
-                backgroundAttachment: "fixed"
-            }}>
+        <>
+            <div
+                style={{
+                    backgroundColor: "white",
+                    minHeight: "100vh",
+                    backgroundImage: "url('upload-background.jpeg')", // Replace with your image path
+                    backgroundSize: "cover",
+                    backgroundPosition: "center",
+                    backgroundAttachment: "fixed",
+                }}
+            >
                 <section
                     className="bg-gray-100 p-8 shadow-md rounded-lg max-w-3xl mx-auto"
                     style={{
@@ -136,44 +137,29 @@ export default function Upload() {
                         backgroundPosition: "center",
                     }}
                 >
-                    <h1 className="text-2xl font-bold mb-6 text-black">Upload PDF</h1>
-                    {user ? (
-                        <div className="flex w-full justify-between mr-5">
-                            <input
-                                type="file"
-                                accept="application/pdf"
-                                onChange={handleFileChange}
-                                className="p-2 border border-gray-300 text-gray-800 rounded-lg mt-4"
-                            />
-                            {fileURL && (
-                                <div>
-                                    <div className="my4-">
-                                        <button
-                                            onClick={handlePreviewPdf}
-                                            className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded"
-                                        >
-                                            View PDF
-                                        </button>
-                                    </div>
+                    <h1 className="text-2xl font-bold mb-6 text-black">
+                        Upload PDF
+                    </h1>
+                    <div className="flex w-full justify-between mr-5">
+                        <input
+                            type="file"
+                            accept="application/pdf"
+                            onChange={handleFileChange}
+                            className="p-2 border border-gray-300 text-gray-800 rounded-lg mt-4"
+                        />
+                        {fileURL && (
+                            <div>
+                                <div className="my4-">
+                                    <button
+                                        onClick={handlePreviewPdf}
+                                        className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded"
+                                    >
+                                        View PDF
+                                    </button>
                                 </div>
-                            )}
-                        </div>
-                    ) : (
-                        <div className="bg-white shadow-lg rounded-lg p-8 text-center">
-                            <h2 className="text-2xl font-semibold mb-4">
-                                Sign In Required
-                            </h2>
-                            <p className="text-gray-600 mb-4">
-                                Please sign in to upload and view PDFs.
-                            </p>
-                            <button
-                                onClick={handleGoogleSignIn}
-                                className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded mt-10"
-                            >
-                                Sign In to Upload PDF
-                            </button>
-                        </div>
-                    )}
+                            </div>
+                        )}
+                    </div>
                     <div
                         className={` text-white p-2 rounded-md px-6  bg-blue-600   my-5`}
                     >
@@ -183,7 +169,7 @@ export default function Upload() {
                             ? "Results for PDF"
                             : "Upload PDF to Search"}
                     </div>
-                    {user && (articleResults.length || googleResults.length) && (
+                    {(articleResults.length || googleResults.length) && (
                         <ResultsArea
                             articleResults={articleResults}
                             googleResults={googleResults}

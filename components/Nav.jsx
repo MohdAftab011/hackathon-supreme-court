@@ -92,7 +92,7 @@ const Nav = () => {
                             </a>
                         </div>
 
-                        <div className="hidden lg:ml-auto lg:flex lg:items-center lg:space-x-8 xl:space-x-10">
+                        {/* <div className="hidden lg:ml-auto lg:flex lg:items-center lg:space-x-8 xl:space-x-10">
                             {loading ? (
                                 <div>Loading...</div>
                             ) : user ? (
@@ -115,7 +115,7 @@ const Nav = () => {
                                     Sign In with Google
                                 </button>
                             )}
-                        </div>
+                        </div> */}
                     </div>
                 </div>
             </header>
