@@ -19,7 +19,7 @@ const ResultsArea = ({ articleResults, googleResults }) => {
                     <h2 className="text-xl font-semibold mb-4 text-black">
                         Article Results:
                     </h2>
-                    <div className="grid gap-4">
+                    {/* <div className="grid gap-4">
                         {articleResults.map((result, index) => (
                             <div
                                 key={index}
@@ -53,7 +53,7 @@ const ResultsArea = ({ articleResults, googleResults }) => {
                                 )}
                             </div>
                         ))}
-                    </div>
+                    </div> */}
                 </div>
             )}
             {googleResults && googleResults.length > 0 && (

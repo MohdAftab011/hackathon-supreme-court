@@ -79,8 +79,15 @@ export default function Upload() {
             if (resultsArray.length > 0) {
                 const googleQuery = resultsArray
                     .map((item) =>
-                        item.title ? `"${item.title}" "Indian "` : ""
+                        item.Section
+                            ? `"Indian laws" "Section ${item.Section}"` +
+                              (item.chapter
+                                  ? ` "chapter ${item.chapter}"`
+                                  : "") +
+                              ` "India" OR "Indian Penal Code" OR "IPC"`
+                            : ""
                     )
+
                     .filter(Boolean)
                     .join(" OR ");
 
