@@ -3,11 +3,11 @@ import React from 'react';
 const HIW = () => {
 
     return (
-        <section  className="py-10 bg-white sm:py-16 lg:py-24">
+        <section id="HIW"  className="py-10 bg-white sm:py-16 lg:py-24">
                     <div className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
                         <div className="max-w-2xl mx-auto text-center">
                             <h2 className="text-3xl font-bold leading-tight text-black sm:text-4xl lg:text-5xl">How does it work?</h2>
-                            <p className="max-w-lg mx-auto mt-4 text-base leading-relaxed text-gray-600">Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis.</p>
+                            <p className="max-w-lg mx-auto mt-4 text-base leading-relaxed text-gray-600">Steps to Run Our Web App on Your Machine</p>
                         </div>
 
                         <div className="relative mt-12 lg:mt-20">
@@ -20,7 +20,7 @@ const HIW = () => {
                                     <div className="flex items-center justify-center w-16 h-16 mx-auto bg-white border-2 border-gray-200 rounded-full shadow">
                                         <span className="text-xl font-semibold text-gray-700"> 1 </span>
                                     </div>
-                                    <h3 className="mt-6 text-xl font-semibold leading-tight text-black md:mt-10">Create a free account</h3>
+                                    <h3 className="mt-6 text-xl font-semibold leading-tight text-black md:mt-10">Install Necessary Dependencies</h3>
                                     <p className="mt-4 text-base text-gray-600">Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit.</p>
                                 </div>
 
@@ -28,7 +28,7 @@ const HIW = () => {
                                     <div className="flex items-center justify-center w-16 h-16 mx-auto bg-white border-2 border-gray-200 rounded-full shadow">
                                         <span className="text-xl font-semibold text-gray-700"> 2 </span>
                                     </div>
-                                    <h3 className="mt-6 text-xl font-semibold leading-tight text-black md:mt-10">Build your website</h3>
+                                    <h3 className="mt-6 text-xl font-semibold leading-tight text-black md:mt-10">View Our Website</h3>
                                     <p className="mt-4 text-base text-gray-600">Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit.</p>
                                 </div>
 
@@ -36,8 +36,9 @@ const HIW = () => {
                                     <div className="flex items-center justify-center w-16 h-16 mx-auto bg-white border-2 border-gray-200 rounded-full shadow">
                                         <span className="text-xl font-semibold text-gray-700"> 3 </span>
                                     </div>
-                                    <h3 className="mt-6 text-xl font-semibold leading-tight text-black md:mt-10">Release & Launch</h3>
-                                    <p className="mt-4 text-base text-gray-600">Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit.</p>
+                                    <h3 className="mt-6 text-xl font-semibold leading-tight text-black md:mt-10">Start Using Our Services</h3>
+                                    <p className="mt-4 text-base text-gray-600"> 1. Unified Search </p>
+                                    <p className="mt-4 text-base text-gray-600">2. Upload Docs </p>
                                 </div>
                             </div>
                         </div>

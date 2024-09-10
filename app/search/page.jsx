@@ -92,26 +92,29 @@ const UnifiedSearch = () => {
                 Unified Search
             </h1>
 
-            <form onSubmit={handleSubmit} className="mb-6">
-                <div className="flex items-center border border-gray-300 rounded-lg overflow-hidden">
-                    <input
-                        className="flex-grow p-3 outline-none text-black"
-                        type="text"
-                        value={query}
-                        onChange={(e) => setQuery(e.target.value)}
-                        placeholder="Search for articles..."
-                    />
-                    <button
-                        type="submit"
-                        className={`bg-blue-500 text-white p-3 px-6 hover:bg-blue-600 transition duration-200 ${
-                            isLoading ? "opacity-50 cursor-not-allowed" : ""
-                        }`}
-                        disabled={isLoading}
-                    >
-                        {isLoading ? "Searching..." : "Search"}
-                    </button>
-                </div>
-            </form>
+            <form onSubmit={handleSubmit} className="mb-6 space-y-4">
+    <div className="flex flex-col">
+        <textarea
+            className="w-full p-3 outline-none text-black resize-none h-32 border border-gray-300 rounded-lg"
+            value={query}
+            onChange={(e) => setQuery(e.target.value)}
+            placeholder="Search for articles..."
+        />
+    </div>
+    <div className="flex justify-end">
+        <button
+            type="submit"
+            className={`bg-gradient-to-r from-purple-400 via-blue-500 to-blue-600 text-white py-2 px-6 rounded-lg hover:from-purple-500 hover:to-blue-700 transition duration-200 shadow-md ${
+                isLoading ? "opacity-50 cursor-not-allowed" : ""
+            }`}
+            disabled={isLoading}
+        >
+            {isLoading ? "Searching..." : "Search"}
+        </button>
+    </div>
+</form>
+
+
 
             {error && <p className="text-red-500 mb-4">{error}</p>}
             <div
@@ -137,3 +140,4 @@ const UnifiedSearch = () => {
 };
 
 export default UnifiedSearch;
+

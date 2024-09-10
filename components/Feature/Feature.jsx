@@ -9,7 +9,7 @@ const Feature = () => {
                 "Contextual Recommendations: Provides relevant sections from legal literature, rules, and judgments tailored to commercial court cases.",
                 "Keyword and Citation Analysis: Analyzes key phrases and citations in a legal document to offer focused insights and related cases."
             ],
-            imageSrc: "Pre-An.jpeg", // You would replace with actual image source path
+            imageSrc: "Pre-An.jpeg", 
             altText: "Feedback Image 1"
         },
         {
@@ -19,7 +19,7 @@ const Feature = () => {
                 "Probability Scoring: Assigns probability scores to potential outcomes, offering judicial officers a data-backed perspective without replacing their judgment.",
                 "Outcome Scenario Simulation: Simulates various legal outcomes by altering key variables, helping to foresee possible decisions."
             ],
-            imageSrc: "eth-comp.jpeg", // Replace with actual image source path
+            imageSrc: "eth-comp.jpeg", 
             altText: "Feedback Image 2"
         },
         {
@@ -28,7 +28,7 @@ const Feature = () => {
                 "Proven technologies ensure reliability",
                 "Compatible with common legal research platforms, allowing easy adoption by judicial officers.",
             ],
-            imageSrc: "Tech-feas.jpeg", // Replace with actual image source path
+            imageSrc: "Tech-feas.jpeg", 
             altText: "Feedback Image 3"
         }
     ];
